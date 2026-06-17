@@ -37,10 +37,10 @@ jobs:
           SHA_TAG=sha-${GITHUB_SHA::7}
           IMAGE_BASE="${{ steps.login-ecr.outputs.registry }}/${{ env.ECR_REPOSITORY }}"
           echo "IMAGE_BASE=$IMAGE_BASE" >> $GITHUB_ENV
-          echo "TAGS=latest $SHA_TAG"  >> $GITHUB_ENV
+          echo "TAGS=latest $SHA_TAG" >> $GITHUB_ENV
           echo "Using tags: latest and $SHA_TAG"
-          echo "latest = convenience tag for testing"  
-          echo "$SHA_TAG = immutable tag used in HELM values"
+          echo "latest = convenience tag for testing"
+          echo "$SHA_TAG = immutable tag used in Helm values"
       
       - name: Build and Push docker Images
         run: |
