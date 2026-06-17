@@ -1,4 +1,4 @@
-name: Build and Push UI updates to ECR
+name: Build and Push UI updates to ECR by mahesh
 
 on:
   push:
@@ -35,7 +35,7 @@ jobs:
         id: vars
         run: |
           SHA_TAG=sha-${GITHUB_SHA::7}
-          IMAGE_BASE="${{ steps.login-ecr.output.registry }}/${{ env.ECR_REPOSITORY }}"
+          IMAGE_BASE="${{ steps.login-ecr.outputs.registry }}/${{ env.ECR_REPOSITORY }}"
           echo "IMAGE_BASE=$IMAGE_BASE" >> $GITHUB_ENV
           echo "TAGS=latest $SHA_TAG"  >> $GITHUB_ENV
           echo "Using tags: latest and $SHA_TAG"
