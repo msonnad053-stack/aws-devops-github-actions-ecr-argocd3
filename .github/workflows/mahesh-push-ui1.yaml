@@ -47,7 +47,7 @@ jobs:
           for tag in $TAGS; do
             IMAGE_URI="$IMAGE_BASE:$tag"
             echo "Building and Pushing" $IMAGE_URI
-            docker build -t $IMAGE_URI /src/ui
+            docker build -t $IMAGE_URI src/ui
             docker push $IMAGE_URI
           done  
 
